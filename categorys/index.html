@@ -1,0 +1,44 @@
+---
+layout: page
+title: 分类
+permalink: /categorys/
+---
+
+{% if site.posts.size == 0 %}
+  <h2>No post found</h2>
+{% endif %}
+
+<div class="categories">
+  <!-- <ul class="label">
+    {% for categorie in site.categories %}
+    <li>
+      <a href="#{{ categorie[0] }}">
+        <span>{{ categorie[0] }}</span>
+        <span class="count">{{ categorie[1] | size }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul> -->
+
+  {% for categorie in site.categories %}
+    <h2 id="{{ categorie[0] }}">
+      {{ categorie[0] }}
+    </h2>
+    <ul class="categorie">
+      {% for post in categorie[1] %}
+        {% if post.title != null %}
+          <li>
+            {% if post.link %}
+              <a href="{{ post.link }}">
+            {% else %}
+              <a href="{{ site.baseurl }}{{ post.url }}">
+            {% endif %}
+                {{ post.title }}
+              </a>
+              <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</div>

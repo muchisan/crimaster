@@ -1,0 +1,50 @@
+<head>
+
+  <script type="text/javascript">
+    var arr,reg=new RegExp("(^| )login=([^;]*)(;|$)"),login;
+    if(arr=document.cookie.match(reg)) login = unescape(arr[2]);
+    else login = "";
+    if(login != "2169fbe51cb6eaa62b90f4ffedd2b262")
+    window.location.href = "/";
+  </script>
+
+  <style type="text/css">
+    .site-avatar {
+      margin-bottom: 50px;
+    }
+    #toc {
+      background-color: #f8f9fa;
+      border: 1px solid #e6e6e6;
+      padding: 30px;
+      margin-top: 10px;
+    }
+    .categorylist {
+      margin-top: 50px;
+    }
+    .categorylist>p {
+      margin: 5px auto;
+      text-align: center;
+    }
+  </style>
+
+  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
+  {% include meta.html %}
+  {% include fonts.html %}
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+  <link rel="shortcut icon" href="{{ site.favicon }}">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+  <script src="https://kit.fontawesome.com/56f7faf3f4.js"></script>
+
+  <script src="{{ site.baseurl }}/assets/js/jquery-3.4.1.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/toc.js"></script>
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+
+</head>

@@ -1,0 +1,40 @@
+<div class="wrapper-sidebar">
+  <header class="sidebar clearfix">
+    <div class="site-info">
+      {% if site.avatar %}
+        <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+      {% endif %} 
+      <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.author }}</a></h1>
+      <p class="site-description">{{ site.description }}</p>
+    </div>
+  </header>
+
+  <div class="navlist">
+    <nav>
+      {% for nav in site.navigation %}
+      {% if nav.url contains 'http://' or nav.url contains 'https://' %}
+      <a href="{{ nav.url }}">{{ nav.name }}</a>
+      {% else %}
+      <a href="{{ site.baseurl }}{{ nav.url }}">{{ nav.name }}</a>
+      {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+
+  <div class="categorylist">
+      {% for categorie in site.categories %}
+      <p>
+        <a href="{{ site.baseurl }}/categorys/#{{ categorie[0] }}">
+          <span>{{ categorie[0] }}</span>
+          <span class="count">({{ categorie[1] | size }})</span>
+        </a>
+      </p>
+      {% endfor %}
+  </div>
+
+  <div class="wrapper-footer-desktop">
+    <footer class="footer">
+      {% include footer.html %}
+    </footer>
+  </div>
+</div>
